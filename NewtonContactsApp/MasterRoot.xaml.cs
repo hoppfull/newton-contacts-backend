@@ -13,15 +13,42 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
-
 namespace NewtonContactsApp {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class MasterRoot : Page {
         public MasterRoot() {
-            this.InitializeComponent();
+            InitializeComponent();
+            initViewButtonState();
+        }
+
+        private void btn_AppBarAdd_Click(object sender, RoutedEventArgs e) {
+
+        }
+
+        private void btn_AppBarView_Click(object sender, RoutedEventArgs e) {
+            AppBarButton btn = sender as AppBarButton;
+
+            if (btn != null) {
+                switchViewButtonState();
+                setMasterViewPage();
+            }
+
+        }
+
+        private void setMasterViewPage() {
+            if(!btn_AppBarList.IsEnabled)
+                frm_MasterRoot.Navigate(typeof(MasterListView));
+            else if (!btn_AppBarGrid.IsEnabled)
+                frm_MasterRoot.Navigate(typeof(MasterGridView));
+        }
+
+        private void initViewButtonState() {
+            btn_AppBarGrid.IsEnabled = !btn_AppBarList.IsEnabled;
+            setMasterViewPage();
+        }
+
+        private void switchViewButtonState() {
+            btn_AppBarList.IsEnabled = !btn_AppBarList.IsEnabled;
+            btn_AppBarGrid.IsEnabled = !btn_AppBarGrid.IsEnabled;
         }
     }
 }

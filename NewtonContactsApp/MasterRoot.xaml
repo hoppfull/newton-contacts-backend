@@ -9,10 +9,14 @@
 
     <Page.BottomAppBar>
         <CommandBar>
-            <AppBarButton Icon="Add" Label="Add"/>
+            <AppBarButton Icon="Add" Label="Add" Click="btn_AppBarAdd_Click" />
             <AppBarSeparator />
-            <AppBarButton Icon="ViewAll" Label="Grid" />
-            <AppBarButton Icon="List" Label="List" />
+            <AppBarButton x:Name="btn_AppBarGrid"
+                          Icon="ViewAll" Label="Grid"
+                          Click="btn_AppBarView_Click" />
+            <AppBarButton x:Name="btn_AppBarList"
+                          Icon="List" Label="List"
+                          Click="btn_AppBarView_Click" />
         </CommandBar>
     </Page.BottomAppBar>
     

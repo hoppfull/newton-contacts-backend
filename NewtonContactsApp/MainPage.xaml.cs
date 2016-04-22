@@ -15,6 +15,8 @@ using Windows.UI.Xaml.Navigation;
 
 namespace NewtonContactsApp {
     public sealed partial class MainPage : Page {
+        private Model.IContactsRepository DB = new Model.MockContactsRepo();
+
         public MainPage() {
             InitializeComponent();
             frm_MainRoot.Navigate(typeof(MasterRoot));
