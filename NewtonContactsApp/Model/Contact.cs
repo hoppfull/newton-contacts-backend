@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NewtonContactsApp.Model {
+﻿namespace NewtonContactsApp.Model {
     public class Contact {
         public int Index { get; set; }
         public string Name { get; set; }

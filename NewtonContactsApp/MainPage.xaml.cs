@@ -19,7 +19,7 @@ namespace NewtonContactsApp {
 
         public MainPage() {
             InitializeComponent();
-            frm_MainRoot.Navigate(typeof(MasterRoot));
+            frm_MainRoot.Navigate(typeof(MasterRoot), DB);
         }
     }
 }

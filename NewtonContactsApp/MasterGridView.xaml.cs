@@ -13,15 +13,21 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
-
 namespace NewtonContactsApp {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class MasterGridView : Page {
+        private Model.IContactsRepository DB;
         public MasterGridView() {
-            this.InitializeComponent();
+            InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e) {
+            DB = e.Parameter as Model.IContactsRepository;
+            if (DB != null)
+                grv_View.ItemsSource = DB.GetAll();
+        }
+
+        private void grv_View_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+
         }
     }
 }

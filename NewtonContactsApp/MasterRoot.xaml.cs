@@ -15,9 +15,15 @@ using Windows.UI.Xaml.Navigation;
 
 namespace NewtonContactsApp {
     public sealed partial class MasterRoot : Page {
+        private Model.IContactsRepository DB;
         public MasterRoot() {
             InitializeComponent();
-            initViewButtonState();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e) {
+            DB = e.Parameter as Model.IContactsRepository;
+            if (DB != null)
+                initViewButtonState();
         }
 
         private void btn_AppBarAdd_Click(object sender, RoutedEventArgs e) {
@@ -31,14 +37,13 @@ namespace NewtonContactsApp {
                 switchViewButtonState();
                 setMasterViewPage();
             }
-
         }
 
         private void setMasterViewPage() {
             if(!btn_AppBarList.IsEnabled)
-                frm_MasterRoot.Navigate(typeof(MasterListView));
+                frm_MasterRoot.Navigate(typeof(MasterListView), DB);
             else if (!btn_AppBarGrid.IsEnabled)
-                frm_MasterRoot.Navigate(typeof(MasterGridView));
+                frm_MasterRoot.Navigate(typeof(MasterGridView), DB);
         }
 
         private void initViewButtonState() {
