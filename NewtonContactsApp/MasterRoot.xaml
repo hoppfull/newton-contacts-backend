@@ -7,7 +7,16 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton Icon="Add" Label="Add"/>
+            <AppBarSeparator />
+            <AppBarButton Icon="ViewAll" Label="Grid" />
+            <AppBarButton Icon="List" Label="List" />
+        </CommandBar>
+    </Page.BottomAppBar>
+    
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <Frame x:Name="frm_MasterRoot" />
     </Grid>
 </Page>

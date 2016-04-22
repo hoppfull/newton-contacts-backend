@@ -17,6 +17,7 @@ namespace NewtonContactsApp {
     public sealed partial class MainPage : Page {
         public MainPage() {
             InitializeComponent();
+            frm_MainRoot.Navigate(typeof(MasterRoot));
         }
     }
 }
