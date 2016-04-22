@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
+﻿using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
 namespace NewtonContactsApp {
@@ -27,7 +15,12 @@ namespace NewtonContactsApp {
         }
 
         private void lsv_View_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-
+            ListView lsv_Item = sender as ListView;
+            if(lsv_Item != null) {
+                Frame.Navigate(typeof(DetailsPage), new DetailsPageState {
+                    DB = DB, SelectedContact = (Model.Contact)lsv_View.SelectedItem
+                });
+            }
         }
     }
 }
