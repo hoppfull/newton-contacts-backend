@@ -14,8 +14,7 @@
                 <DataTemplate x:DataType="data:Contact">
                     <Grid Width="220" Padding="3"
                           BorderBrush="Gray"
-                          BorderThickness="1"
-                          Background="Orange">
+                          BorderThickness="1">
                         <StackPanel Orientation="Vertical">
                             <StackPanel.Resources>
                                 <Style TargetType="TextBlock">

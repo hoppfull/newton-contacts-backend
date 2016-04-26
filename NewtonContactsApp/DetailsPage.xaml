@@ -7,7 +7,81 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="Chartreuse">
-        
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" MaxHeight="70" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" MinHeight="50" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1" x:Name="grd_TextFields">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="auto" MaxWidth="200" />
+                <ColumnDefinition Width="7*" MinWidth="200" MaxWidth="400" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition MaxHeight="20" />
+                <RowDefinition MaxHeight="20" />
+                <RowDefinition MaxHeight="20" />
+                <RowDefinition MaxHeight="20" />
+                <RowDefinition MaxHeight="20" />
+                <RowDefinition MaxHeight="20" />
+                <RowDefinition MaxHeight="20" />
+                <RowDefinition MaxHeight="20" />
+            </Grid.RowDefinitions>
+            <Grid.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="HorizontalAlignment" Value="Right"/>
+                    <Setter Property="Margin" Value="0, 3, 0, 0" />
+                    <Setter Property="Grid.Column" Value="1" />
+                    <Setter Property="FontWeight" Value="Bold" />
+                </Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="Margin" Value="5, 1" />
+                    <Setter Property="Padding" Value="3, 0" />
+                    <Setter Property="Grid.Column" Value="2" />
+                    <Setter Property="MinHeight" Value="20" />
+                </Style>
+            </Grid.Resources>
+            <TextBlock Text="Name:" Grid.Row="0" />
+            <TextBlock Text="EmailAddress:" Grid.Row="1" />
+            <TextBlock Text="PhoneNumber:" Grid.Row="2" />
+            <TextBlock Text="CareOf:" Grid.Row="3" />
+            <TextBlock Text="Address:" Grid.Row="4" />
+            <TextBlock Text="PostalCode:" Grid.Row="5" />
+            <TextBlock Text="City:" Grid.Row="6" />
+            <TextBlock Text="Country:" Grid.Row="7" />
+            <TextBox x:Name="tbx_NameField"
+                     Grid.Row="0" Text="{Binding Name}" />
+            <TextBox x:Name="tbx_EmailAddressField"
+                     Grid.Row="1" Text="{Binding EmailAddress}" />
+            <TextBox x:Name="tbx_PhoneNumberField"
+                     Grid.Row="2" Text="{Binding PhoneNumber}" />
+            <TextBox x:Name="tbx_CareOfField"
+                     Grid.Row="3" Text="" />
+            <TextBox x:Name="tbx_AddressField"
+                     Grid.Row="4" Text="{Binding Address}" />
+            <TextBox x:Name="tbx_PostalCodeField"
+                     Grid.Row="5" Text="{Binding PostalCode}" />
+            <TextBox x:Name="tbx_CityField"
+                     Grid.Row="6" Text="{Binding City}" />
+            <TextBox x:Name="tbx_CountryField"
+                     Grid.Row="7" Text="{Binding Country}" />
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Margin" Value="5,0" />
+                    </Style>
+                </StackPanel.Resources>
+                <Button x:Name="btn_Save" Content="Save" Click="btn_Save_Click" />
+                <Button x:Name="btn_Apply" Content="Apply" Click="btn_Apply_Click" />
+                <Button x:Name="btn_Delete" Content="Delete" Click="btn_Delete_Click" />
+                <Button x:Name="btn_Cancel" Content="Cancel" Click="btn_Cancel_Click" />
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>

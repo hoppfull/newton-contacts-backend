@@ -8,7 +8,7 @@
     mc:Ignorable="d">
 
     <Page.BottomAppBar>
-        <CommandBar>
+        <CommandBar x:Name="cdb_NavigationBar">
             <AppBarButton Icon="Add" Label="Add" Click="btn_AppBarAdd_Click" />
             <AppBarSeparator />
             <AppBarButton x:Name="btn_AppBarGrid"

@@ -1,4 +1,5 @@
-﻿using Windows.UI.Xaml;
+﻿using System;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -15,8 +16,30 @@ namespace NewtonContactsApp {
                 initViewButtonState();
         }
 
-        private void btn_AppBarAdd_Click(object sender, RoutedEventArgs e) {
+        public void EnableCommandBar(bool enable) {
+            cdb_NavigationBar.Visibility = enable
+                ? Visibility.Visible
+                : Visibility.Collapsed;
+        }
 
+        public void ShowDetails(Model.Contact contact) {
+            EnableCommandBar(false);
+            frm_MasterRoot.Navigate(typeof(DetailsPage), Tuple.Create(contact, DB));
+        }
+
+        private void btn_AppBarAdd_Click(object sender, RoutedEventArgs e) {
+            Model.Contact newContact = new Model.Contact {
+                Name = "",
+                EmailAddress = "",
+                PhoneNumber = "",
+                CareOf = "",
+                Address = "",
+                PostalCode = "",
+                City = "",
+                Country = "",
+                AppData = ""
+            };
+            ShowDetails(newContact);
         }
 
         private void btn_AppBarView_Click(object sender, RoutedEventArgs e) {
